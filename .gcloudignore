@@ -12,7 +12,5 @@ __pycache__/
 /setup.cfg
 
 # Heroku
-requirements.txt
 runtime.txt
 Procfile
-
