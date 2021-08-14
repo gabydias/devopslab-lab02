@@ -9,10 +9,10 @@ os: linux
 dist: xenial
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_4000f4d8bf69_key -iv $encrypted_4000f4d8bf69_iv
+- openssl aes-256-cbc -K $encrypted_0c86ccbedeb3_key -iv $encrypted_0c86ccbedeb3_iv
   -in lab-devops-cloud-02-937fc2f2ce18.json.enc -out ../lab-devops-cloud-02-937fc2f2ce18.json
   -d
-
+        
 jobs:
   include:
     - stage: Build
