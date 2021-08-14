@@ -13,11 +13,23 @@ install:
 script:
   - python -m unittest -v test
 
+before_install:
+- openssl aes-256-cbc -K $encrypted_4000f4d8bf69_key -iv $encrypted_4000f4d8bf69_iv
+  -in labdevopscloud-gabydias-7454ebb388ce.json.enc -out ../labdevopscloud-gabydias-7454ebb388ce.json
+  -d
+
 # Definir o Deploy no Heroku
 deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-gabylima
-  on:
+  - provider: heroku
+    api_key: $HEROKU_API_KEY
+    edge: true 
+    app: devopslab-gabylima
+    on:
+      branch: main
+
+# Definir o Deploy no Google AppEngine
+  - provider: gae
+    keyfile: ../labdevopscloud-gabydias-7454ebb388ce.json
+    project: labdevopscloud-gabydias
+    on:
       branch: main
